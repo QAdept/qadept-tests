@@ -1,6 +1,6 @@
 /.idea
 /vendor
-/.composer.lock
+/composer.lock
 /projects/*/_qaapi
 /projects/*/tests/_data
 /projects/*/tests/_envs
