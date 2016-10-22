@@ -1,0 +1,7 @@
+/.idea
+/vendor
+/projects/*/_qaapi
+/projects/*/tests/_data
+/projects/*/tests/_envs
+/projects/*/tests/_output
+/projects/*/tests/_support/_generated

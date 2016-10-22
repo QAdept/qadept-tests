@@ -1,0 +1,12 @@
+class_name: FunctionalTester
+modules:
+    enabled:
+        - \MyTests\Helper\Functional
+        - WebDriver:
+            url: 'http://myproject.local'
+            browser: phantomjs
+            window_size: 1280x960
+        - Asserts
+        - \MyTests\Helper\QaApi:
+            url: 'http://myproject.local/qaapi'
+            api_key: my_secret_key

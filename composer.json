@@ -1,0 +1,6 @@
+{
+    "require": {
+        "codeception/codeception": "^2.2",
+        "qadept/codeception-qaapi": "^1.0"
+    }
+}
