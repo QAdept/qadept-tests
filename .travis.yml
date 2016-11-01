@@ -9,7 +9,7 @@ matrix:
 
 # We don't want to run linux commands as super user
 #false means Travis will run this in a container
-sudo: false
+#sudo: false
 
 # Cache folder, you can delete cache from Travis CI web interface
 cache:
@@ -29,4 +29,4 @@ install:
   - php codecept.phar --version
 
 script:
-    - php codecept.phar run -c projects/MyTests
+    - php codecept.phar run -c projects/MyTests --steps
