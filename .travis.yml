@@ -2,14 +2,31 @@ language: php
 php:
   - 5.6
 
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: 7.0
+
+# We don't want to run linux commands as super user
+#false means Travis will run this in a container
+sudo: false
+
+# Cache folder, you can delete cache from Travis CI web interface
 cache:
     directories:
         - vendor
         - $HOME/.composer/cache
 
+# Disable x-debug to speed up things
+before_install: phpenv config-rm xdebug.ini
+
+# Install packages those will be required during build
 install:
-    - composer self-update
-    - composer install
+  - composer install --no-interaction
+  - echo "Download and Install codecept.phar"
+  - wget -c -nc --retry-connrefused --tries=0 http://codeception.com/codecept.phar
+  - chmod +x codecept.phar
+  - php codecept.phar --version
 
 script:
-    - php vendor/bin/codecept run -c projects/MyTests functional FirstTestCest:tryToTest --steps
+    - php codecept.phar run -c projects/MyTests functional FirstTestCest:tryToTest --steps
